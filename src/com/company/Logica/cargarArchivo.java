@@ -13,7 +13,11 @@ public class cargarArchivo {
     PrintStream output = new PrintStream(System.out);
     public boolean datoscargados=false;
     Producto producto =new Producto();
-    Lista milista =new Lista();
+    Lista milista;
+
+    public cargarArchivo(Lista milista){
+        this.milista = milista;
+    }
 
     public boolean isDatoscargados(){
         return datoscargados;
@@ -22,7 +26,7 @@ public class cargarArchivo {
 
 
 public void cargarproductos () throws FileNotFoundException {
-    String Flipkart="C:\\Users\\taera\\IdeaProjects\\TareaProgramada2\\src\\com\\company\\Archivos\\DataFinal.csv";
+    String Flipkart="C:\\Users\\taera\\IdeaProjects\\TareaProgramada2\\src\\com\\company\\Archivos\\flipkart_com-ecommerce_sample.csv";
     Scanner lector = new Scanner (new File(Flipkart));
     int contador=0;
     String currentline=" ";
@@ -36,36 +40,30 @@ public void cargarproductos () throws FileNotFoundException {
             nuevoProducto.setCodigo(datos[0]);
             nuevoProducto.setNombre(datos[3]);
             nuevoProducto.setCategoria(datos[4]);
-            milista.agregar(nuevoProducto);
+            this.milista.agregar(nuevoProducto);
         }
         contador++;
     }
     lector.close();
-    milista.transformardecimal();
     datoscargados=true;
     System.out.println("Se han cargado " +contador + " datos");
 }
 
     public void busqueda_por_nombre(){
-        if(milista.estaVacia()){
+        if(this.milista.estaVacia()){
             System.out.println("Los datos no se han cargado");
         } else{
             System.out.println("Ingrese el producto que desea encontrar: ");
-            milista.buscarproducto(input.nextLine());
+            this.milista.buscarproducto(input.nextLine());
         }
     }
         public void printcodes(){
-            if(milista.estaVacia()){
+            if( this.milista.estaVacia()){
                 System.out.println("Los datos no se han cargado");
             } else {
                 System.out.println("Ultimos 3 digitos del codigo ");
-                milista.imprimirListacodigos();
+                this.milista.imprimirListacodigos();
             }
 
         }
-
-
-
-
-
 }

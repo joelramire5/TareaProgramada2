@@ -45,6 +45,14 @@ public class Lista {
             temp = temp.next;
         }
     }
+    public void cargartresultimosdigitos(Hash hash){
+        Producto temp = inicio;
+        while (temp!=null){
+            hash.agregar(temp.getCodigo().substring(29,32),temp);
+            temp = temp.next;
+        }
+
+    }
 
 
     public void buscarproducto(String buscar) {
@@ -65,15 +73,17 @@ public class Lista {
         }
 
 
-    public void transformardecimal() {
+    public int transformardecimal() {
         Producto temp = inicio;
+        int  digitos=0;
         while (temp != null) {
             String CodigoProducto = temp.getCodigo();
-            int digitos = Integer.parseInt(CodigoProducto.substring(29, 32),16);
+            digitos = Integer.parseInt(CodigoProducto.substring(29, 32),16);
             temp = temp.next;
             System.out.println(digitos);
         }
 
+        return digitos;
     }
 
 }

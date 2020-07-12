@@ -1,6 +1,7 @@
 package com.company.UiHelper;
 
 import com.company.Entidades.Lista;
+import com.company.HashTable.Hash;
 import com.company.Logica.cargarArchivo;
 
 import java.io.FileNotFoundException;
@@ -10,8 +11,14 @@ import java.util.Scanner;
 public class Menu {
     Scanner input = new Scanner(System.in);
     PrintStream output = new PrintStream(System.out);
-    cargarArchivo cargararchivo =new cargarArchivo();
     Lista milista = new Lista();
+    cargarArchivo cargararchivo =new cargarArchivo(milista);
+    Hash hash;
+
+
+    public Menu(Hash hash) {
+        this.hash = hash;
+    }
 
     public void principal(){
         System.out.println("****Productos****");
@@ -50,12 +57,19 @@ public class Menu {
                 case 4:
                     output.println("El programa ha salido con exito");
                     System.exit(1);
+                case 5:
+                    if(!milista.estaVacia()){
+                        milista.cargartresultimosdigitos(this.hash);
+                    }else{
+                        System.out.println("lista vacia");
+                    }
 
+                    break;
                 default:
                     System.out.println("Ingrese una opcion valida");
             }
 
-            } while (opcion != 4 ) ;
+            } while (opcion != 7 ) ;
         }
 
 
