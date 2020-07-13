@@ -60,6 +60,16 @@ public class Lista {
         System.out.println("Se encontraron " + contador + " datos");
         }
 
+    public int contadordelista() {
+        int contador = 0;
+        Nodo temp = inicio;
+        while (temp != null) {
+            contador++;
+            temp = temp.next;
+        }
+        return contador++;
+    }
+
 
 }
 

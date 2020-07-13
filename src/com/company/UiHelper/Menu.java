@@ -36,11 +36,8 @@ public class Menu {
                     break;
 
                 case 2:
-                    if (milista.estaVacia()==true) {
                         cargararchivo.busqueda_por_nombre();
-                    } else {
-                        System.out.println("Los datos no han sido cargados");
-                    }
+
                     break;
 
                 case 3:
