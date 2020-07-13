@@ -30,7 +30,7 @@ public void cargarproductos () throws FileNotFoundException {
     String Flipkart="C:\\Users\\taera\\IdeaProjects\\TareaProgramada2\\src\\com\\company\\Archivos\\flipkart_com-ecommerce_sample.csv";
     Scanner lector = new Scanner (new File(Flipkart));
     int contador=0;
-    String currentline=" ";
+    String currentline=Flipkart;
     while (lector.hasNextLine()){
         currentline=lector.nextLine();
 
