@@ -2,7 +2,7 @@ package com.company.Entidades;
 
 public class Lista {
 
-    private Producto inicio = null;
+    private Nodo inicio = null;
 
     public boolean estaVacia() {
 
@@ -13,7 +13,7 @@ public class Lista {
         if (inicio == null) {
             inicio = nuevoNodo;
         } else {
-            Producto temp = inicio;
+            Nodo temp = inicio;
             while (temp.next != null) {
                 temp = temp.next;
             }
@@ -22,9 +22,9 @@ public class Lista {
     }
 
     public void imprimirLista() {
-        Producto temp = inicio;
+        Nodo temp = inicio;
         while (temp != null) {
-            System.out.println("Valor del producto "+ temp.getNombre());
+            System.out.println("Valor del producto "+ temp.producto.getNombre());
             temp = temp.next;
         }
 
@@ -33,10 +33,10 @@ public class Lista {
 
     public void imprimirListacodigos() {
 
-        Producto temp = inicio;
+        Nodo temp = inicio;
 
         while (temp != null) {
-            String CodigoProducto = temp.getCodigo();
+            String CodigoProducto = temp.producto.getCodigo();
             String digitos = CodigoProducto.substring(29, 32);
             System.out.println("Valor del producto " + digitos);
             temp = temp.next;
@@ -46,11 +46,11 @@ public class Lista {
     public void buscarproducto(String buscar) {
         int contador = 0;
 
-            Producto temp = inicio;
+            Nodo temp = inicio;
             while (temp != null) {
-                if (temp.getNombre().toLowerCase().contains(buscar.toLowerCase())) {
-                    System.out.println("Codigo del Producto: " + temp.getCodigo() + " " + "Producto: " + temp.getNombre()
-                            + " Categoria: " + temp.getCategoria());
+                if (temp.producto.getNombre().toLowerCase().contains(buscar.toLowerCase())) {
+                    System.out.println("Codigo del Producto: " + temp.producto.getCodigo() + " " + "Producto: " + temp.producto.getNombre()
+                            + " Categoria: " + temp.producto.getCategoria());
                     temp = temp.next;
                     contador++;
                 } else {

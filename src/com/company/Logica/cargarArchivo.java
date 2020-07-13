@@ -1,6 +1,7 @@
 package com.company.Logica;
 
 import com.company.Entidades.Lista;
+import com.company.Entidades.Nodo;
 import com.company.Entidades.Producto;
 
 import java.io.File;
@@ -13,7 +14,7 @@ public class cargarArchivo {
     PrintStream output = new PrintStream(System.out);
     public boolean datoscargados=false;
     Producto producto =new Producto();
-    Lista milista;
+    Lista milista = new Lista();
 
     public cargarArchivo(Lista milista){
         this.milista = milista;
@@ -40,7 +41,8 @@ public void cargarproductos () throws FileNotFoundException {
             nuevoProducto.setCodigo(datos[0]);
             nuevoProducto.setNombre(datos[3]);
             nuevoProducto.setCategoria(datos[4]);
-            this.milista.agregar(nuevoProducto);
+            Nodo nuevonodo=new Nodo(nuevoProducto);
+            milista.agregar(nuevonodo);
         }
         contador++;
     }

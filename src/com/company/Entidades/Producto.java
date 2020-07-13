@@ -5,7 +5,6 @@ public class Producto {
     String nombre;
     String categoria;
 
-    public Producto next;
 
 
     public String getCodigo() {
