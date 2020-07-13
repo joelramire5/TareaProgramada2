@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class MenuHash {
     Scanner input = new Scanner(System.in);
     PrintStream output = new PrintStream(System.out);
-    private HashTable arraylistproductos = new HashTable(50);
+    private HashTable arraylistproductos = new HashTable(4096);
     private boolean datoscargados=false;
     HashTable hashTable=new HashTable(4096);
 
@@ -39,12 +39,12 @@ public class MenuHash {
                     break;
 
                 case 2:
-                   arraylistproductos.obtener();
+                    arraylistproductos.obtener();
                     break;
 
                 case 3:
-                 arraylistproductos.mostrarposicion();
-                    break;
+                        arraylistproductos.mostrarposicion();
+                        break;
 
                 case 4:
                     output.println("El programa ha salido con exito");

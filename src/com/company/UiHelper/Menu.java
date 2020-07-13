@@ -36,8 +36,11 @@ public class Menu {
                     break;
 
                 case 2:
+                    if (milista.estaVacia()) {
                         cargararchivo.busqueda_por_nombre();
-
+                    } else {
+                        System.out.println("Los datos no han sido cargados");
+                    }
                     break;
 
                 case 3:
@@ -47,9 +50,6 @@ public class Menu {
                 case 4:
                     output.println("El programa ha salido con exito");
                     System.exit(1);
-
-                default:
-                    System.out.println("Ingrese una opcion valida");
             }
 
             } while (opcion != 4 ) ;
