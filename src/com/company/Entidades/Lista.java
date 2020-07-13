@@ -1,8 +1,5 @@
 package com.company.Entidades;
 
-import com.company.HashTable.Hash;
-import com.company.Producto;
-
 public class Lista {
 
     private Producto inicio = null;
@@ -12,7 +9,7 @@ public class Lista {
         return inicio == null;
     }
 
-    public void agregar(Producto nuevoNodo) {
+    public void agregar(Nodo nuevoNodo) {
         if (inicio == null) {
             inicio = nuevoNodo;
         } else {
@@ -27,7 +24,7 @@ public class Lista {
     public void imprimirLista() {
         Producto temp = inicio;
         while (temp != null) {
-            System.out.println("Valor del producto " + temp.getCodigo() + " " + temp.getNombre() + " " + temp.getCategoria());
+            System.out.println("Valor del producto "+ temp.getNombre());
             temp = temp.next;
         }
 
@@ -45,15 +42,6 @@ public class Lista {
             temp = temp.next;
         }
     }
-    public void cargartresultimosdigitos(Hash hash){
-        Producto temp = inicio;
-        while (temp!=null){
-            hash.agregar(temp.getCodigo().substring(29,32),temp);
-            temp = temp.next;
-        }
-
-    }
-
 
     public void buscarproducto(String buscar) {
         int contador = 0;
@@ -72,19 +60,6 @@ public class Lista {
         System.out.println("Se encontraron " + contador + " datos");
         }
 
-
-    public int transformardecimal() {
-        Producto temp = inicio;
-        int  digitos=0;
-        while (temp != null) {
-            String CodigoProducto = temp.getCodigo();
-            digitos = Integer.parseInt(CodigoProducto.substring(29, 32),16);
-            temp = temp.next;
-            System.out.println(digitos);
-        }
-
-        return digitos;
-    }
 
 }
 

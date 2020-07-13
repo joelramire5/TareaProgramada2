@@ -1,7 +1,7 @@
 package com.company.Logica;
 
 import com.company.Entidades.Lista;
-import com.company.Producto;
+import com.company.Entidades.Producto;
 
 import java.io.File;
 import java.io.FileNotFoundException;

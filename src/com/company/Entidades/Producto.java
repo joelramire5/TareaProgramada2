@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Entidades;
 
 public class Producto {
     String codigo;
